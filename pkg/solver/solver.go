@@ -4,11 +4,12 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
+	"math"
 	"strings"
 )
 
 func Solve(challenge string) int {
-	for i := 0; i < 1000000000; i++ {
+	for i := 0; i < math.MaxInt; i++ {
 		sol := fmt.Sprintf("%d.%s", i, challenge)
 		dig := sha256.New()
 		dig.Write([]byte(sol))
